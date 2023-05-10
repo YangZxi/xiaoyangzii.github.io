@@ -31,7 +31,7 @@ git reset --soft HEAD~1
 ```
 
 ## rebase
-
+* 
 
 ## 其他操作
 * 对于已push的文件，想从远程仓库删除且以后都不在提交
