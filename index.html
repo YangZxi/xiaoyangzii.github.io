@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>小树苗 - XIAOSM'S BLOG</title><meta name="author" content="小羊"><meta name="copyright" content="小羊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="小树苗">
+<meta property="og:url" content="https://www.xiaosm.cn/">
+<meta property="og:site_name" content="小树苗">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://q1.qlogo.cn/g?b=qq&nk=1282381264&s=640">
+<meta property="article:author" content="小羊">
+<meta property="article:tag" content="Hexo,博客,小树苗,XIAOSM,JAVA,HTML,JAVASCRIPT,PYTHON">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://q1.qlogo.cn/g?b=qq&nk=1282381264&s=640"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.xiaosm.cn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e5c558916c618f835fdab015b2dafd4f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 小羊","link":"链接: ","source":"来源: 小树苗","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '小树苗',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-05-10 19:28:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1282381264&amp;s=640" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/yangzx1282"><i class="fa-fw fas fa-folder-open"></i><span> GitHub</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/./static/bg_sheep.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="小树苗"><span class="site-name">小树苗</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/yangzx1282"><i class="fa-fw fas fa-folder-open"></i><span> GitHub</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">小树苗</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/5efdcc1faad4/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-10T11:28:39.868Z" title="发表于 2023-05-10 19:28:39">2023-05-10</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题">springcloud+alibaba+nacos常见问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-08T13:56:27.000Z" title="发表于 2023-04-08 21:56:27">2023-04-08</time></span></div><div class="content">说明此贴收集在使用springcloud-springcloud-alibaba-nacos中常见问题版本说明
+
+
+
+名称
+版本
+
+
+
+nacos
+2.1.1
+
+
+spring-boot
+2.7.6
+
+
+spring-cloud
+2021.0.5
+
+
+spring-cloud-alibaba
+2021.0.5.0
+
+
+问题集锦spring-cloud开启@LoadBalanced后，仍报服务找不到错误问题原因：在新版本中spring-cloud中，官方放弃了ribbon，使用loadbalancer
+12345&lt;dependency&gt;    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;    &lt;artifactId&gt;spring-cloud-starter-loadbalancer&lt;/artifactId&gt;    &lt;version&gt;2.2.0.RELEASE&lt;/version&gt;&lt;/dependency&gt;
+
+nacos调整权重不生效，还是轮询问题原因 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/021dc39f4e85/" title="mysql开启主从复制">mysql开启主从复制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-04T05:42:28.000Z" title="发表于 2023-04-04 13:42:28">2023-04-04</time></span></div><div class="content">原理mysql主从复制主要是通过监听master（主库）的binlog日志，slave（从库）的IO Thread将所有改动操作写入relay log日志，然后在slave中的SQL Thread执行对应的sql语句来实现的
+
+Master主库在事务提交时，会把数据变更记录在二进制日志文件Binlog中
+从库读取主库的二进制日志文件Binlog,写入到从库的中继日志Relay Log
+slave重做 relay 日志中的事件，将改变反映它自己的数据
+
+实现步骤
+准备两台数据库服务器
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/97a3174c9374/" title="使用docker创建elasticsearch">使用docker创建elasticsearch</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-30T08:28:40.000Z" title="发表于 2023-03-30 16:28:40">2023-03-30</time></span></div><div class="content">官网地址https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_install_docker_desktop_or_docker_engine
+安装elasticsearch
+下载elasticsearch8
+1docker pull docker.elastic.co/elasticsearch/elasticsearch:8.6.1
+
+为 Elasticsearch 和 Kibana 创建新的 docker 网络
+1docker network create elastic
+
+运行elasticsearch容器启动后会生成一个有限期30分钟的token，用于后续的kibana的登录，如果没有跳至第6步  
+123docker run --name es01 --net elastic -p 9200:9200 \     -v plugins:/usr/share/elasticsearch/plugins \     -it docker.elastic.co/elasticsear ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/12d62dc213cc/" title="keytool生成证书">keytool生成证书</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T13:15:44.000Z" title="发表于 2022-10-23 21:15:44">2022-10-23</time></span></div><div class="content">123456789101112131415161718# 第一步: 生成Netty服务端私钥和证书仓库命令，用于将客户端的证书保存到服务端的授信证书仓库中keytool -genkey -alias securechat -keysize 2048 -validity 365 -keyalg RSA -dname &quot;CN=localhost&quot; -keypass sNetty -storepass sNetty -keystore sChat.jks# 第二步：生成Netty服务端自签名证书 用于颁给使用者 从 证书仓库中导出证书keytool -export -alias securechat -keystore sChat.jks -storepass sNetty -file sChat.cer# 第三步：生成客户端的私钥和证书仓库，用于将服务端的证书保存到客户端的授信证书仓库中keytool -genkey -alias smcc -keysize 2048 -validity 365  -keyalg RSA -dname &quot;CN=localhos ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/8428f6b77808/" title="Vue3组件继承">Vue3组件继承</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-12T13:34:16.000Z" title="发表于 2022-10-12 21:34:16">2022-10-12</time></span></div><div class="content">有些情况第三方的UI组件库不能满足我们自己的需求，需要定制一些功能上去，有没有一种可能，vue也可以写像写面向对象语言一样，继承一个组件，然后定制一些功能呢以下案例基于vue3实现
+例如我现在有一个组件NButton，现在想给这个组件加上一个权限判断，当登录用户没有此按钮的权限时，将对此按钮不可见或禁用等
+extends文档地址：https://cn.vuejs.org/api/options-composition.html#extends
+
+详细信息：使一个组件可以继承另一个组件的组件选项。
+
+我们通过extends: NButton继承一个组件库
+1234567891011121314151617181920// YButton.vue&lt;script lang=&quot;ts&quot;&gt;import &#123; defineComponent &#125; from &#x27;vue&#x27;import &#123; NButton &#125; from &quot;naive-ui&quot;export default defineComponent ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/02dde4ee6763/" title="git常用命令（救命版）">git常用命令（救命版）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-12T07:38:03.000Z" title="发表于 2022-08-12 15:38:03">2022-08-12</time></span></div><div class="content">git -h 获取帮助
+commit
+添加并提交已修改的文件（仅已被add的文件）1git commit -a -m &#x27;message&#x27;
+
+push
+推送当前分支所有commit至远程12345# 默认提交到与当前分支同名称的远程分支，远程没有则自动创建git push# 提交到指定remote，指定分支git push origin master
+
+reset
+已经commit，还未提交，保留add1git reset --soft HEAD~1
+
+rebase* 
+其他操作
+对于已push的文件，想从远程仓库删除且以后都不在提交
+1git rm --cached [&lt;file&gt;...]
+
+对于已push的文件，想在以后不提交，但不从远程仓库删除
+1234git update-index --assume-unchanged [&lt;file&gt;...]# 若是要忽略某个目录下所有文件，使用git bash，cd到目标目录下git update-index --assume-unchanged $(git ls-files | tr &#x27; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/7c4903cf5116/" title="算法思想之滑动窗口">算法思想之滑动窗口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-31T07:45:08.000Z" title="发表于 2022-03-31 15:45:08">2022-03-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/algorithm/">algorithm</a></span></div><div class="content">练习传送门https://leetcode-cn.com/tag/sliding-window/problemset/
+算法描述滑动窗口指的是这样一类问题的求解方法，在数组上通过双指针同向移动而解决的一类问题。其实这样的问题我们可以不必为它们专门命名一个名字，它们的解法其实是很自然的。使用滑动窗口解决的问题通常是暴力解法的优化，掌握这一类问题最好的办法就是练习，然后思考清楚为什么可以使用滑动窗口。
+算法思路滑动窗口的核心是使用两个指针，left和right来指定一个窗口（范围）中的数据是否满足要求。在最长字串中，如果找到了结果就继续扩大范围（right右移），不满足时缩小范围（left右移）在最短字串中，如果找到了结果就继续缩小范围（left右移），不满足时扩大范围（right右移当left == right时，扩大窗口，直到right &gt; length 
+如：🐶🐷🐷🐶🐶🐷🐶🐶🐷🐷🐷🐶，长度12 
+
+
+
+🐶
+🐷
+🐷
+🐶
+🐶
+🐷
+🐶
+🐶
+🐷
+🐷
+🐷
+🐶
+
+
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+
+我们需要找到在以上表 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/55e551c03af9/" title="51实现数码管动态显示数字">51实现数码管动态显示数字</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-15T02:15:30.000Z" title="发表于 2021-07-15 10:15:30">2021-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MCU/">MCU</a></span></div><div class="content">在学习单片机点亮数码管的时候，为实现0-9数字的依次显示
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768#include &quot;reg52.h&quot;typedef unsigned char u8;typedef unsigned int u16;// #define P0 P0sbit P22 = P2^2;sbit P23 = P2^3;sbit P24 = P2^4;void delay(unsigned int ms)		//@12.000MHz&#123;	unsigned char i, j;    while (ms--)    &#123;        /* code */        i = 2;        j = 239;        do        &#123;            while (--j);        &#125 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/9d53bacce392/" title="Mybatis-Plus中枚举类型注入失败">Mybatis-Plus中枚举类型注入失败</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-15T04:14:46.000Z" title="发表于 2021-04-15 12:14:46">2021-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">问题描述项目持久层框架是Mybatis-plus（以下简称mybatis），数据库是Mysql最近在将项目中的一些字段改为枚举类型，但是后来发现枚举变量一直注入不进去通过对mybatis的 defaultEnumTypeHandler配置（默认枚举处理类） 的org.apache.ibatis.type.EnumOrdinalTypeHandler#valueOf方法进行DEBUG，发现value参数的值是布尔类型这时第一时间想到可能是因为数据库使用tinyint类型导致的
+解决方案解决方法就很简单了，只需要将数据库字段的tinyint类型改为int就好了。可以看到value的值变成了1，而不是上面的true了，问题至此解决但是你说，诶，我任性，我就要设置为tinyint怎么办呢，那我们可以把tinyint的长度设置为4，这样问题也能得到解决
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1282381264&amp;s=640" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">小羊</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/5efdcc1faad4/" title="Hello World"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/305475.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/post/5efdcc1faad4/" title="Hello World">Hello World</a><time datetime="2023-05-10T11:28:39.868Z" title="发表于 2023-05-10 19:28:39">2023-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/171423.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springcloud+alibaba+nacos常见问题"/></a><div class="content"><a class="title" href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题">springcloud+alibaba+nacos常见问题</a><time datetime="2023-04-08T13:56:27.000Z" title="发表于 2023-04-08 21:56:27">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/021dc39f4e85/" title="mysql开启主从复制"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql开启主从复制"/></a><div class="content"><a class="title" href="/post/021dc39f4e85/" title="mysql开启主从复制">mysql开启主从复制</a><time datetime="2023-04-04T05:42:28.000Z" title="发表于 2023-04-04 13:42:28">2023-04-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/97a3174c9374/" title="使用docker创建elasticsearch"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用docker创建elasticsearch"/></a><div class="content"><a class="title" href="/post/97a3174c9374/" title="使用docker创建elasticsearch">使用docker创建elasticsearch</a><time datetime="2023-03-30T08:28:40.000Z" title="发表于 2023-03-30 16:28:40">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/12d62dc213cc/" title="keytool生成证书"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/305475.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="keytool生成证书"/></a><div class="content"><a class="title" href="/post/12d62dc213cc/" title="keytool生成证书">keytool生成证书</a><time datetime="2022-10-23T13:15:44.000Z" title="发表于 2022-10-23 21:15:44">2022-10-23</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode/"><span class="card-category-list-name">Leetcode</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MCU/"><span class="card-category-list-name">MCU</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/algorithm/"><span class="card-category-list-name">algorithm</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">数据结构&算法</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/nacos/" style="font-size: 1.1em; color: #999">nacos</a> <a href="/tags/java/" style="font-size: 1.5em; color: #99a9bf">java</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/Mysql/" style="font-size: 1.1em; color: #999">Mysql</a> <a href="/tags/Vue/" style="font-size: 1.3em; color: #99a1ac">Vue</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.3em; color: #99a1ac">算法</a> <a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.1em; color: #999">51单片机</a> <a href="/tags/Java/" style="font-size: 1.3em; color: #99a1ac">Java</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/tags/springcloud/" style="font-size: 1.1em; color: #999">springcloud</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-01-01T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-05-10T11:28:52.599Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/./static/bg_sheep.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 小羊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Copyright © 2020-2021 <a href="https://www.xiaosm.cn">WWW.XIAOSM.CN</a><br/><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>湘ICP备18023752号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (false) {
+    typedJSFn.init(["Nothing is impossible for a willing heart"])
+  } else {
+    document.getElementById("subtitle").textContent = 'Nothing is impossible for a willing heart'
+  }
+}
+typedJSFn.run(subtitleType)</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    btf.addModeChange('mermaid', () => {
+      window.runMermaid()
+    })
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
