@@ -23,8 +23,8 @@ jobs:
       - name: Deploy file to tencent
         uses: wlixcc/SFTP-Deploy-Action@v1.0 
         with:  
-          username: 'young'   #ssh user name
-          server: '${{ variables.SERVER_HOST }}' #引用之前创建好的secret
-          ssh_private_key: ${{ variables.SERVER_KEY }} #引用之前创建好的secret
+          username: '${{ secrets.SERVER_USER }}'   #ssh user name
+          server: '${{ secrets.SERVER_HOST }}' #引用之前创建好的secret
+          ssh_private_key: ${{ secrets.PRIVITE_KEY }} #引用之前创建好的secret
           local_path: './*'  # 对应我们项目build的文件夹路径
-          remote_path: '/home/nginx/html/blog'
+          remote_path: '${{ secrets.TARGET_PATH }}'
