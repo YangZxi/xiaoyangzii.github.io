@@ -40,7 +40,7 @@ git push origin <branch> --force
 
 * 已经 commit，从远程分支上撤销当前提交
 ``` shell
-
+git 
 ```
 
 ## rebase
