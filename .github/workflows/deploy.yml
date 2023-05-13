@@ -1,9 +1,9 @@
-name: Pages
+name: Deploy
 
 on:
   push:
     branches:
-      - master # default branch
+      - gh-pages # default branch
 
 jobs:
   pages:
@@ -11,24 +11,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-      - name: Cache NPM dependencies
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./public
+      - name: Checkout    
+        uses: actions/checkout@v2    #这里使用了github官方提供的action,checkout项目到虚拟机上
+
+      # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
+      - name: Deploy file to tencent
+        uses: wlixcc/SFTP-Deploy-Action@v1.0 
+        with:  
+          username: 'young'   #ssh user name
+          server: '${{ secrets.SERVER_HOST }}' #引用之前创建好的secret
+          ssh_private_key: ${{ secrets.SERVER_KEY }} #引用之前创建好的secret
+          local_path: './*'  # 对应我们项目build的文件夹路径
+          remote_path: '/home/nginx/html/blog'
