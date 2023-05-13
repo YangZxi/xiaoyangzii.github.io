@@ -1,14 +1,9 @@
 name: Deploy
 
 on:
-  # push:
-  #   branches:
-  #     - gh-pages # default branch
-  workflow_run:
-    workflows: ["Build"]
-    types: [requested]
+  push:
     branches:
-      - master
+      - gh-pages # default branch
 
 jobs:
   pages:
