@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo使用github action实现自动部署到云服务器 | 小树苗</title><meta name="author" content="小羊"><meta name="copyright" content="小羊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用 github action 脚本，当我们把 hexo 文章源文件上传至 github 时，会自动帮我们打包，如果你开启 page 功能，那么将会自动 push 至所指定的分支上，实现自动化部署功能同理，也可以实现将编译好的 html 文件上传至服务器 编译 Hexo 首先创建一个仓库，你可以设置为私有或者公有 进入仓库主页，点击 Actions，点击New workflow创建一个名为bui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo使用github action实现自动部署到云服务器">
+<meta property="og:url" content="https://www.xiaosm.cn/post/92d9821e702a/">
+<meta property="og:site_name" content="小树苗">
+<meta property="og:description" content="使用 github action 脚本，当我们把 hexo 文章源文件上传至 github 时，会自动帮我们打包，如果你开启 page 功能，那么将会自动 push 至所指定的分支上，实现自动化部署功能同理，也可以实现将编译好的 html 文件上传至服务器 编译 Hexo 首先创建一个仓库，你可以设置为私有或者公有 进入仓库主页，点击 Actions，点击New workflow创建一个名为bui">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg">
+<meta property="article:published_time" content="2023-05-14T05:11:46.000Z">
+<meta property="article:modified_time" content="2023-05-14T07:12:34.569Z">
+<meta property="article:author" content="小羊">
+<meta property="article:tag" content="Hexo,博客,小树苗,XIAOSM,JAVA,HTML,JAVASCRIPT,PYTHON">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.xiaosm.cn/post/92d9821e702a/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e5c558916c618f835fdab015b2dafd4f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 小羊","link":"链接: ","source":"来源: 小树苗","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo使用github action实现自动部署到云服务器',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-14 15:12:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1282381264&amp;s=640" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/yangzx1282"><i class="fa-fw fas fa-folder-open"></i><span> GitHub</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="小树苗"><span class="site-name">小树苗</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/yangzx1282"><i class="fa-fw fas fa-folder-open"></i><span> GitHub</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo使用github action实现自动部署到云服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-14T05:11:46.000Z" title="发表于 2023-05-14 13:11:46">2023-05-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-14T07:12:34.569Z" title="更新于 2023-05-14 15:12:34">2023-05-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hexo使用github action实现自动部署到云服务器"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>使用 github action 脚本，当我们把 hexo 文章源文件上传至 github 时，会自动帮我们打包，如果你开启 page 功能，那么将会自动 push 至所指定的分支上，实现自动化部署功能<br>同理，也可以实现将编译好的 html 文件上传至服务器</p>
+<h2 id="编译-Hexo"><a href="#编译-Hexo" class="headerlink" title="编译 Hexo"></a>编译 Hexo</h2><ol>
+<li>首先创建一个仓库，你可以设置为私有或者公有</li>
+<li>进入仓库主页，点击 Actions，点击<code>New workflow</code>创建一个名为<code>build.yml</code>的 action<br><img src="/./2023-05-14-14-00-59.png" alt="./2023-05-14-14-00-59.png"></li>
+<li>配置 hexo 编译 action 脚本<br>这里用到的是<a target="_blank" rel="noopener" href="https://github.com/peaceiris/actions-gh-pages/tree/v3/"><code>peaceiris/actions-gh-pages@v3</code></a>的脚本，有需要的可以直接找 hexo 的部署脚本</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Build</span> <span class="comment"># action name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># 当 master 分支发生 push 请求时执行</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">permissions:</span></span><br><span class="line">      <span class="attr">contents:</span> <span class="string">write</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">16.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">NPM</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-npm-cache</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Push</span> <span class="string">To</span> <span class="string">gh-pages</span></span><br><span class="line">        <span class="comment"># https://github.com/peaceiris/actions-gh-pages/tree/v3/</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span>  <span class="comment"># 无需配置，由 github 提供</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./public</span>                      <span class="comment"># 将指定目录下的文件 push 至 gh-pages</span></span><br><span class="line">          <span class="attr">commit_message:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>拉去项目至本地，创建 hexo 博客<br>然后随便写一篇文章 push 至<code>master</code>分支</li>
+<li>查看运行结果<br>回到仓库主页，点击 Actions，我们可以看到名为<code>build</code>的任务正在执行<br>点击正在执行的 action，可以查看日志和目前的进度，等任务走完就可以在<code>branch</code>中看到<code>gh-pages</code>分支了</li>
+</ol>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>以上的脚本还只是将我们写好的 hexo 博客，编译打包到了<code>gh-pages</code>分支上<br>如果是用<code>github pages</code>服务的话，只需要配置好仓库名称即可，具体可以搜索参考其他文章，这里主要讲怎么使用<code>workflow</code>的形式部署至云服务器上</p>
+<ol>
+<li><p>同样创建一个新的 Action，名称为<code>deploy.yml</code></p>
+</li>
+<li><p>配置<code>Deploy</code>的脚本</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">workflow_run:</span></span><br><span class="line">    <span class="attr">workflows:</span> [<span class="string">Build</span>]</span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">master</span>]</span><br><span class="line">    <span class="attr">types:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">completed</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span>    </span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span>  <span class="comment"># 这里使用了github官方提供的action,checkout项目到虚拟机上</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">gh-pages</span> <span class="comment"># 检出 gh-pages 分支下的内容</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">file</span> <span class="string">to</span> <span class="string">tencent</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">wlixcc/SFTP-Deploy-Action@v1.0</span> </span><br><span class="line">        <span class="attr">with:</span>  </span><br><span class="line">          <span class="attr">username:</span> <span class="string">&#x27;$<span class="template-variable">&#123;&#123; secrets.SERVER_USER &#125;&#125;</span>&#x27;</span>       <span class="comment"># ssh user name</span></span><br><span class="line">          <span class="attr">server:</span> <span class="string">&#x27;$<span class="template-variable">&#123;&#123; secrets.SERVER_HOST &#125;&#125;</span>&#x27;</span>         <span class="comment"># 服务器地址</span></span><br><span class="line">          <span class="attr">ssh_private_key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PRIVITE_KEY</span> <span class="string">&#125;&#125;</span>  <span class="comment"># 引用之前创建好的 secret</span></span><br><span class="line">          <span class="attr">local_path:</span> <span class="string">&#x27;./*&#x27;</span>                            <span class="comment"># 对应 hexo build 后的文件夹</span></span><br><span class="line">          <span class="attr">remote_path:</span> <span class="string">&#x27;$<span class="template-variable">&#123;&#123; secrets.TARGET_PATH &#125;&#125;</span>&#x27;</span>    <span class="comment"># 远程服务器路径</span></span><br></pre></td></tr></table></figure>
+<p><code>workflow_run</code>中配置了，只有在<code>master</code>分支上运行名为<code>Build</code>且完成才执行  </p>
+</li>
+<li><p>创建 openssh key<br>如果不需要ssh key登录的，可以参考文档使用账号密码登录，参考第五步配置<code>secrets</code><br>首先通过<code>ssh-keygen.exe</code>创建密钥对，<code>-f</code>指定创建的公私钥存放位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;密钥备注&quot; -f ~/.ssh/hexo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制公钥</span></span><br><span class="line">cat ~/.ssh/hexo.pub</span><br></pre></td></tr></table></figure>
+<p>执行命令后会在<code>~/.ssh/</code>目录下创建两个文件，其中以<code>.pub</code>结尾的是公钥，没有的是私钥</p>
+</li>
+<li><p>ssh 登录至服务器，将复制的公钥粘贴至<code>authorized_keys</code>文件内</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 .ssh 文件夹</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建文件</span></span><br><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure></li>
+<li><p>配置仓库 Secrets<br>进入 github 仓库主页，点击<code>Settings &gt; Secrets and variables &gt; Actions</code>，在页面内点击<code>New respostory serect</code>按钮<br>创建私钥，名称<code>PRIVITE_KEY</code>，内容就是第四步创建的私钥内容，注意复制到输入框中的时候私钥末尾需要有一个换行，不然会报格式错误<br>根据同样的方式将<code>SERVER_USER</code>，<code>SERVER_HOST</code>，<code>TARGET_PATH</code>同样配置好</p>
+</li>
+</ol>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>当以上操作均完成后，现在我们在本地写完文章后只需要把源文件 push 至 github，剩下的都交给 action 处理就好了<br>如果 action 执行出错是会发邮件提醒的，点击 action 日志，我们也可以查看是哪里出了错误，来进行对照修改</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果有其他需求，如变更 build 后 push 的分支，切换事件分支等，可以参考<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow"><strong>官方文档</strong></a>和每个 action 的文档</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.xiaosm.cn">小羊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.xiaosm.cn/post/92d9821e702a/">https://www.xiaosm.cn/post/92d9821e702a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.xiaosm.cn" target="_blank">小树苗</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/d08b9f9c29e4/" title="Hello World"><img class="cover" src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div><div class="next-post pull-right"><a href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题"><img class="cover" src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">springcloud+alibaba+nacos常见问题</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1282381264&amp;s=640" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">小羊</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-Hexo"><span class="toc-number">1.</span> <span class="toc-text">编译 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">4.</span> <span class="toc-text">补充</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/d08b9f9c29e4/" title="Hello World"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/post/d08b9f9c29e4/" title="Hello World">Hello World</a><time datetime="2023-05-14T07:12:34.569Z" title="发表于 2023-05-14 15:12:34">2023-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/92d9821e702a/" title="hexo使用github action实现自动部署到云服务器"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo使用github action实现自动部署到云服务器"/></a><div class="content"><a class="title" href="/post/92d9821e702a/" title="hexo使用github action实现自动部署到云服务器">hexo使用github action实现自动部署到云服务器</a><time datetime="2023-05-14T05:11:46.000Z" title="发表于 2023-05-14 13:11:46">2023-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springcloud+alibaba+nacos常见问题"/></a><div class="content"><a class="title" href="/post/493ab0294677/" title="springcloud+alibaba+nacos常见问题">springcloud+alibaba+nacos常见问题</a><time datetime="2023-04-08T13:56:27.000Z" title="发表于 2023-04-08 21:56:27">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/021dc39f4e85/" title="mysql开启主从复制"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/217260.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql开启主从复制"/></a><div class="content"><a class="title" href="/post/021dc39f4e85/" title="mysql开启主从复制">mysql开启主从复制</a><time datetime="2023-04-04T05:42:28.000Z" title="发表于 2023-04-04 13:42:28">2023-04-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/97a3174c9374/" title="使用docker创建elasticsearch"><img src="https://backiee.com/static/wpdb/wallpapers/1000x563/171423.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用docker创建elasticsearch"/></a><div class="content"><a class="title" href="/post/97a3174c9374/" title="使用docker创建elasticsearch">使用docker创建elasticsearch</a><time datetime="2023-03-30T08:28:40.000Z" title="发表于 2023-03-30 16:28:40">2023-03-30</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://backiee.com/static/wpdb/wallpapers/1000x563/157681.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 小羊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Copyright © 2020-2021 <a href="https://www.xiaosm.cn">WWW.XIAOSM.CN</a><br/><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>湘ICP备18023752号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    btf.addModeChange('mermaid', () => {
+      window.runMermaid()
+    })
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'mhN0GGeSEH5QOnIMjTqLq8FT-gzGzoHsz',
+      appKey: 'xgc5iSYGnkEVKNELhsRYXNNt',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
