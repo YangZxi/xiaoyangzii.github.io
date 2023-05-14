@@ -10,20 +10,17 @@ on:
 jobs:
   pages:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout    
-        uses: actions/checkout@v3    #这里使用了github官方提供的action,checkout项目到虚拟机上
+        uses: actions/checkout@v3  # 这里使用了github官方提供的action,checkout项目到虚拟机上
         with:
           ref: gh-pages
 
-      # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
       - name: Deploy file to tencent
         uses: wlixcc/SFTP-Deploy-Action@v1.0 
         with:  
-          username: '${{ secrets.SERVER_USER }}'   # ssh user name
-          server: '${{ secrets.SERVER_HOST }}' # 引用之前创建好的secret
-          ssh_private_key: ${{ secrets.PRIVITE_KEY }} # 引用之前创建好的secret
+          username: '${{ secrets.SERVER_USER }}'  # ssh user name
+          server: '${{ secrets.SERVER_HOST }}'  # 引用之前创建好的secret
+          ssh_private_key: ${{ secrets.PRIVITE_KEY }}  # 引用之前创建好的secret
           local_path: './*'  # 对应我们项目build的文件夹路径
-          remote_path: '${{ secrets.TARGET_PATH }}'
+          remote_path: '${{ secrets.TARGET_PATH }}' # 远程服务器路径
