@@ -1,9 +1,9 @@
-name: Build
+name: Build # action name
 
 on:
   push:
     branches:
-      - master # default branch
+      - master # 当 master 分支发生 push 请求时执行
 
 jobs:
   pages:
@@ -31,6 +31,6 @@ jobs:
         # https://github.com/peaceiris/actions-gh-pages/tree/v3/
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # 无需配置，由 github 提供
+          publish_dir: ./public                      # 将指定目录下的文件 push 至 gh-pages
           commit_message: ${{ github.event.head_commit.message }}
