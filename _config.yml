@@ -42,7 +42,10 @@ external_link:
 auto_spacing: true # 在中文和英文之间插入空格
 filename_case: 0
 render_drafts: false
-post_asset_folder: true # 创建md文档时创建同名的资源文件夹
+post_asset_folder: true # 创建 md 文档时创建同名的资源文件夹
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:

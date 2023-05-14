@@ -40,7 +40,7 @@ window.addEventListener("message", (e) => {
 // 第一个参数需要发送的内容，第二个参数是接收方的地址
 window.opener.postMessage("你好，我是百度", "https://www.xiaosm.cn");
 ```
-![百度给本站发送消息后message事件的回调参数](./2020-12-04-20-39-31.png)
+![百度给本站发送消息后message事件的回调参数](2020-12-04-20-39-31.png)
 可以看到，在本站的控制台中打印了事件回调函数中的参数e  
 其中`origin`是发送者的的域名，`data`是发送的信息
 

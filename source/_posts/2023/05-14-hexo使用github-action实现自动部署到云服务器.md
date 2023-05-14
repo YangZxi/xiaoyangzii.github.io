@@ -11,7 +11,7 @@ tags:
 ## 编译 Hexo
 1. 首先创建一个仓库，你可以设置为私有或者公有
 2. 进入仓库主页，点击 Actions，点击`New workflow`创建一个名为`build.yml`的 action
-![./2023-05-14-14-00-59.png](./2023-05-14-14-00-59.png)
+![./2023-05-14-14-00-59.png](2023-05-14-14-00-59.png)
 3. 配置 hexo 编译 action 脚本  
 这里用到的是[`peaceiris/actions-gh-pages@v3`](https://github.com/peaceiris/actions-gh-pages/tree/v3/)的脚本，有需要的可以直接找 hexo 的部署脚本
 
